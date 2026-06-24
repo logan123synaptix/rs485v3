@@ -45,6 +45,8 @@ add_subdirectory(libs)
 add_subdirectory(usb_net)
 
 add_subdirectory(mongoose)
+
+add_subdirectory(SynaptiX)
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
@@ -77,6 +79,7 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     usb_net
     mongoose
     # Add user defined libraries
+    synaptix_app
 )
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
