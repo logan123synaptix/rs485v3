@@ -21,6 +21,7 @@
 #include "cmsis_os2.h"
 #include "icache.h"
 #include "usart.h"
+#include "tim.h"
 #include "usb.h"
 #include "gpio.h"
 
@@ -100,6 +101,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   MX_USB_PCD_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
