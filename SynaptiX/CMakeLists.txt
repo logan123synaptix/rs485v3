@@ -7,7 +7,7 @@ add_subdirectory(app)
 add_subdirectory(board)
 
 # Phase 2 — uncomment when shell is ready
-# add_subdirectory(services/shell)
+add_subdirectory(services/shell)
 
 # Phase 3 — uncomment when zigbee is ready
 add_subdirectory(services/zigbee)
@@ -16,6 +16,6 @@ add_subdirectory(services/zigbee)
 add_subdirectory(services/lora)
 
 # Phase 5 - Socket
-add_subdirectory(services/socket_server)
-add_subdirectory(services/socket_client)
-add_subdirectory(services/tcp_server)
+# add_subdirectory(services/socket_server)
+# add_subdirectory(services/socket_client)
+# add_subdirectory(services/tcp_server)

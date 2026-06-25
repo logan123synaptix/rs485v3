@@ -4,6 +4,9 @@ add_library(synaptix_app STATIC
     app.c
     user/modbus/user_mb_app.c
     user/indicator/indicator.c
+    user/rf/rf_app.c
+    user/shell/shell_app.c
+    user/shell/shell_commands.c
 )
      
 target_include_directories(synaptix_app PUBLIC
@@ -15,4 +18,6 @@ target_link_libraries(synaptix_app PUBLIC
     synaptix_bsp
     synaptix_modbus
     synaptix_board
+    synaptix_shell
+    synaptix_zigbee
 )

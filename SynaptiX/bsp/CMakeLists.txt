@@ -4,6 +4,7 @@ add_library(synaptix_bsp STATIC
     bsp_callbacks.c
     bsp_gpio.c
     bsp_uart.c
+    bsp_usb.c
 )
 
 target_include_directories(synaptix_bsp PUBLIC
@@ -13,4 +14,5 @@ target_include_directories(synaptix_bsp PUBLIC
 target_link_libraries(synaptix_bsp PUBLIC
     stm32cubemx
     synaptix_cqueue
+    tinyusb
 )
