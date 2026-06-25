@@ -11,4 +11,6 @@ target_include_directories(synaptix_board PUBLIC
 target_link_libraries(synaptix_board PUBLIC
     stm32cubemx
     synaptix_cqueue
+    synaptix_bsp
+    logger
 )

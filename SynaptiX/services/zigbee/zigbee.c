@@ -269,7 +269,7 @@ void zigbee_init(ZigbeeMesh_t *zigbee, ZigbeeDriver_t *driver)
     memset(&zigbee->event_tmp, 0, sizeof(ZigbeeEvent_t));
     zigbee->time_reset = 0;
     cqueue_init_static(&zigbee->event_queue,(void*)zigbee->event_list,sizeof(zigbee->event_list), sizeof(ZigbeeEvent_t));
-    log_info(TAG, "Zigbee Init");
+    LOGI(TAG, "Zigbee Init");
 }
 void zigbee_poll(ZigbeeMesh_t *zigbee, uint32_t timestamp)
 {
@@ -288,7 +288,7 @@ void zigbee_poll(ZigbeeMesh_t *zigbee, uint32_t timestamp)
             }
             zigbee->time_reset += timestamp;
             if(zigbee->time_reset >= 10000){
-                log_info(TAG, "Zigbee Restart");
+                LOGI(TAG, "Zigbee Restart");
                 zigbee_send_restart_cmd(zigbee);
                 zigbee->time_reset = 0;
             }
@@ -339,7 +339,7 @@ void zigbee_poll(ZigbeeMesh_t *zigbee, uint32_t timestamp)
                 zigbee->buff_len = ZIGBEE_BUFFER_SIZE;
             }
             zigbee->driver->read(zigbee->buff, zigbee->buff_len);
-            log_debug(TAG, "Zigbee Read : %u", zigbee->buff_len);
+            LOGD(TAG, "Zigbee Read : %u", zigbee->buff_len);
             log_print_hex(LOGGER_DEBUG, TAG, zigbee->buff, zigbee->buff_len);
         }
         if(zigbee->buff_len == 0 && zigbee->event.cb != NULL){
@@ -414,21 +414,21 @@ void zigbee_read_module(ZigbeeMesh_t *zigbee, ZB_Callback_Func cb,void *arg)
 void zigbee_write_module(ZigbeeMesh_t *zigbee, ZB_Callback_Func cb,void *arg)
 {
     zigbeeGetWriteIns(zigbee);
-    log_info(TAG, "Zigbee Write : %u", sizeof(writeIns));
-    log_info(TAG,"pointType: %u", zigbee->param.pointType);
-    log_info(TAG,"PAN_ID: 0x%04X", zigbee->param.PAN_ID);
-    log_info(TAG,"Channel: %u", zigbee->param.Channel);
-    log_info(TAG,"transferModel: %u", zigbee->param.transferModel);
-    log_info(TAG,"userAddress: 0x%04X", zigbee->param.userAddress);
-    log_info(TAG,"uartBraudRate: %u", zigbee->param.uartBraudRate);
-    log_info(TAG,"uartDataBits: %u", zigbee->param.uartDataBits);
-    log_info(TAG,"uartStopBits: %u", zigbee->param.uartStopBits);
-    log_info(TAG,"uartParity: %u", zigbee->param.uartParity);
-    log_info(TAG,"antennaSelect: %u", zigbee->param.antennaSelect);
-    log_info(TAG,"macAddress: ");
+    LOGI(TAG, "Zigbee Write : %u", sizeof(writeIns));
+    LOGI(TAG,"pointType: %u", zigbee->param.pointType);
+    LOGI(TAG,"PAN_ID: 0x%04X", zigbee->param.PAN_ID);
+    LOGI(TAG,"Channel: %u", zigbee->param.Channel);
+    LOGI(TAG,"transferModel: %u", zigbee->param.transferModel);
+    LOGI(TAG,"userAddress: 0x%04X", zigbee->param.userAddress);
+    LOGI(TAG,"uartBraudRate: %u", zigbee->param.uartBraudRate);
+    LOGI(TAG,"uartDataBits: %u", zigbee->param.uartDataBits);
+    LOGI(TAG,"uartStopBits: %u", zigbee->param.uartStopBits);
+    LOGI(TAG,"uartParity: %u", zigbee->param.uartParity);
+    LOGI(TAG,"antennaSelect: %u", zigbee->param.antennaSelect);
+    LOGI(TAG,"macAddress: ");
     log_print_hex(LOGGER_INFO, TAG, zigbee->param.macAddress, 8);
-    log_info(TAG,"isSecurity: %u", zigbee->param.isSecurity);
-    log_info(TAG,"securityCode: ");
+    LOGI(TAG,"isSecurity: %u", zigbee->param.isSecurity);
+    LOGI(TAG,"securityCode: ");
     log_print_hex(LOGGER_INFO, TAG, zigbee->param.securityCode, 4);
     // zigbee->driver->write(writeIns, sizeof(writeIns));
     zigbee->event_tmp.event = ZB_EVENT_WRITE_MODULE;
@@ -452,7 +452,7 @@ void zigbee_request_signal(ZigbeeMesh_t *zigbee, ZB_Callback_Func cb,void *arg)
 void zigbee_query_ed_pos(ZigbeeMesh_t *zigbee, ZB_Callback_Func cb, void *arg)
 {
     if(zigbee->param.pointType != 1){
-        log_error(TAG,"Node isn't Coordinator");
+        LOGE(TAG,"Node isn't Coordinator");
         return;
     }
     zigbee->event_tmp.event = ZB_EVENT_QUERY_POS;

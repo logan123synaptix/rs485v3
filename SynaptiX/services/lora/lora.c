@@ -282,7 +282,7 @@ void lora_init(LoRaMesh_t *lora, LoRaDriver_t *driver)
     memset(&lora->event, 0, sizeof(LoRaEvent_t));
     memset(&lora->event_tmp, 0, sizeof(LoRaEvent_t));
     cqueue_init_static(&lora->event_queue, lora->event_list,sizeof(lora->event_list),sizeof(LoRaEvent_t));
-    log_info(TAG, "LoRa Init");
+    LOGI(TAG, "LoRa Init");
 }
 
 static void lora_send_connect_cmd(LoRaMesh_t *lora)
@@ -346,7 +346,7 @@ void lora_poll(LoRaMesh_t *lora, uint32_t timestamp)
         lora->driver->read(lora->buff, lora->buff_len);
         if (lora->event.event != EVENT_NONE)
         {
-            log_debug(TAG, "LoRa Event : %d, len : %u", lora->event.event, lora->buff_len);
+            LOGD(TAG, "LoRa Event : %d, len : %u", lora->event.event, lora->buff_len);
             log_print_hex(LOGGER_DEBUG, TAG, lora->buff, lora->buff_len);
         }
         if(lora->buff_len == 0 && lora->event.cb != NULL)
@@ -387,7 +387,7 @@ void lora_poll(LoRaMesh_t *lora, uint32_t timestamp)
 void lora_connect(LoRaMesh_t *lora, Lora_Callback_Func cb,void *arg)
 {
 
-    log_info(TAG, "Connect to LoRa Module");
+    LOGI(TAG, "Connect to LoRa Module");
     // lora->driver->write(LoraINS_LinkModule, 7);
     lora->event_tmp.event = EVENT_LINK_MODULE;
     lora->event_tmp.timeout = 300;
@@ -399,7 +399,7 @@ void lora_connect(LoRaMesh_t *lora, Lora_Callback_Func cb,void *arg)
 
 void lora_reset_module(LoRaMesh_t *lora, Lora_Callback_Func cb,void *arg)
 {
-    log_info(TAG, "Reset LoRa Module");
+    LOGI(TAG, "Reset LoRa Module");
     lora->event_tmp.event = EVENT_RESET_MODULE;
     lora->event_tmp.timeout = 300;
     lora->event_tmp.tick = 0;
@@ -410,7 +410,7 @@ void lora_reset_module(LoRaMesh_t *lora, Lora_Callback_Func cb,void *arg)
 
 void lora_read_module(LoRaMesh_t *lora, Lora_Callback_Func cb,void *arg)
 {
-    log_info(TAG, "Read LoRa Module");
+    LOGI(TAG, "Read LoRa Module");
     lora->event_tmp.event = EVENT_READ_MODULE;
     lora->event_tmp.timeout = 2000;
     lora->event_tmp.tick = 0;
@@ -421,7 +421,7 @@ void lora_read_module(LoRaMesh_t *lora, Lora_Callback_Func cb,void *arg)
 
 void lora_write_module(LoRaMesh_t *lora, Lora_Callback_Func cb,void *arg)
 {
-    log_info(TAG, "Write LoRa Module");
+    LOGI(TAG, "Write LoRa Module");
     lora_get_write_ins(lora);
     lora->event_tmp.event = EVENT_WRITE_MODULE;
     lora->event_tmp.timeout = 2000;
@@ -433,7 +433,7 @@ void lora_write_module(LoRaMesh_t *lora, Lora_Callback_Func cb,void *arg)
 
 void lora_enter_lowpower(LoRaMesh_t *lora, Lora_Callback_Func cb,void *arg)
 {
-    log_info(TAG, "Enter LoRa Low Power Mode");
+    LOGI(TAG, "Enter LoRa Low Power Mode");
     lora->event_tmp.event = EVENT_ENTER_LOWPOWER;
     lora->event_tmp.timeout = 300;
     lora->event_tmp.tick = 0;

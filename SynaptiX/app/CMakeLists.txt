@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.22)
 add_library(synaptix_app STATIC
     app.c
     user/modbus/user_mb_app.c
+    user/indicator/indicator.c
 )
 
 target_include_directories(synaptix_app PUBLIC

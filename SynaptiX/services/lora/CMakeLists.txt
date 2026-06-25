@@ -11,4 +11,5 @@ target_include_directories(synaptix_lora PUBLIC
 target_link_libraries(synaptix_lora PUBLIC
     stm32cubemx
     synaptix_cqueue
+    logger
 )
