@@ -1,3 +1,4 @@
 {
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "idf.currentSetup": "d:\\esp_idf\\v5.4.3\\esp-idf"
 }

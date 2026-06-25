@@ -50,3 +50,5 @@ static inline void indicator_toggle(Indicator_t indicator, int indicator_num){
 #ifdef __cplusplus
 }
 #endif
+
+#endif
