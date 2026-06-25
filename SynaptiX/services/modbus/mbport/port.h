@@ -15,6 +15,7 @@ extern "C" {
 
 #include <stdint.h>
 #include <stdbool.h>
+#include <assert.h>
 
 #define INLINE                  inline
 #define PR_BEGIN_EXTERN_C       extern "C" {
