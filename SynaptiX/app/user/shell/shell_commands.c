@@ -12,6 +12,8 @@
 #include "cli_shell.h"
 #include "board.h"
 #include "bsp_gpio.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
 #include <stdio.h>
 #include <stdlib.h>

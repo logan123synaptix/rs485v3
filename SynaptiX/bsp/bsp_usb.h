@@ -13,7 +13,7 @@ extern "C" {
 
 bool bsp_usb_connected(uint8_t ch);
 uint32_t bsp_usb_transmit(uint8_t ch, uint8_t *buf, uint32_t len);
-uint32_t bsp_usb_avaiable(uint8_t ch);
+uint32_t bsp_usb_available(uint8_t ch);
 uint32_t bsp_usb_receiver(uint8_t ch, uint8_t *buf, uint32_t len);
 
 #ifdef __cplusplus
