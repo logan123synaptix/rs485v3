@@ -88,6 +88,11 @@ bool bsp_com_ready(int com);
  */
 void bsp_com_flush(int com);
 
+/* ── Internal HAL callback handlers (called from bsp_callbacks.c) ─────── */
+void bsp_uart_rx_cplt_cb(UART_HandleTypeDef *huart);
+void bsp_uart_rx_event_cb(UART_HandleTypeDef *huart, uint16_t size);
+void bsp_uart_tx_cplt_cb(UART_HandleTypeDef *huart);
+
 /* ── Timer 0 macros (TIM2, used by Modbus 3.5T) ──────────────────────── */
 extern TIM_HandleTypeDef htim2;
 
