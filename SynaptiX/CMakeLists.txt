@@ -16,6 +16,9 @@ add_subdirectory(services/zigbee)
 add_subdirectory(services/lora)
 
 # Phase 5 - Socket
-# add_subdirectory(services/socket_server)
-# add_subdirectory(services/socket_client)
-# add_subdirectory(services/tcp_server)
+add_subdirectory(services/socket_server)
+add_subdirectory(services/socket_client)
+add_subdirectory(services/tcp_server)
+
+# Phase 6 - WebService
+add_subdirectory(services/web_service)
