@@ -12,4 +12,5 @@ target_link_libraries(synaptix_socketserver PUBLIC
     stm32cubemx
     synaptix_cqueue
     logger
+    lwipcore
 )
