@@ -6,6 +6,7 @@ add_library(synaptix_socketclient STATIC
 
 target_include_directories(synaptix_socketclient PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/../socket_server
 )
 
 target_link_libraries(synaptix_socketclient PUBLIC
