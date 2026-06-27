@@ -11,4 +11,5 @@ target_include_directories(synaptix_web PUBLIC
 target_link_libraries(synaptix_web PUBLIC
     stm32cubemx
     mongoose
+    lwipcore
 )
