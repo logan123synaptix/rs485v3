@@ -23,6 +23,7 @@
 
 #include "FreeRTOS.h"
 #include "task.h"
+#include "app_freertos.h"
 
 /* ── External symbols from portserial.c ──────────────────────────────────── */
 extern eModbus modbus[N_MODBUS];
